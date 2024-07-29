@@ -1,0 +1,61 @@
+.conteneur {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+form {
+    background-color: rgba(120, 194, 173, 0.862);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 15vh;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.input label,
+h3 {
+    color: white;
+}
+
+h3 {
+    text-align: center;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+small {
+    color: white;
+    margin-top: 5px;
+}
+
+button {
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: #F3969A;
+    border: 0;
+    padding: 8px;
+    color: whitesmoke;
+    font-size: 1.2rem;
+}
+
+.error {
+    display: block;
+    color: crimson;
+    font-size: 1.1rem;
+    padding-top: 5px;
+}
+
+.obligatory {
+    color: crimson;
+}
