@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes adresses{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+
+        <h1>Espace membre</h1>
+
+        <div class="row">
+            <div class="col-md-3">{% include 'partials/_menu.html.twig'%}</div>
+            <div class="col-md-9">
+                <div class="d-flex justify-content-between">
+                    <h5>Mes adresses</h5>
+                    <a href="{{ path('app_address_add') }}" class="btn btn-primary">Ajouter une adresse</a>
+                </div>
+
+                {% if app.user.addresses|length == 0 %}
+                    {# <p class="text-info fs-5">Vous n'avez aucune adresse !</p> #}
+                    <div class="alert alert-dismissible alert-warning mt-3">
+                        {# <button type="button" class="btn-close" data-bs-dismiss="alert"></button> #}
+                        <strong>Vous n'avez aucune adresse, cliquez sur le boutton <span class="text-info">Ajouter une adresse</span></strong>
+                    </div>
+                {% endif %}
+                
+                <div class="row">
+                        {% for address in app.user.addresses %}
+                            <div class="col-md-4 mt-5" >
+                                <div class="bg-light p-2 text-center card">
+                                    {{ address.firstname }} {{ address.lastname }} <br>
+                                    {{ address.address }} <br>
+                                    {{ address.postal }} {{ address.city }} {{ address.country }}<br>
+                                    {{address.phone}}<br>
+                                    <div class="d-flex justify-content-around mt-1">
+                                        <a href="{{ path('app_address_add', { id : address.id }) }}" class="small text-decoration-none">Editer</a>
+                                        <a href="{{ path('app_address_delete', { id : address.id }) }}" class="small text-danger text-decoration-none">Supprimer</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                    </div>
+                    
+                
+                    
+                </div>
+                
+        </div>
+    </div>
+
+    </div>
+{% endblock %}

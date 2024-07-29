@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductDetailController!{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+
+        <div class="row">
+            <div class="col-md-6">
+                <img src="/uploads/{{ products.illustration }}" class="img-fluid w-100" alt="{{ products.name }}">
+            </div>
+            <div class="col-md-6">
+                <small><i><a href="{{ path('app_product', { slug : products.category.slug }) }}">{{ products.category.name }} </a>> {{ products.name }}</i></small>
+                <h1>{{ products.name }}</h1>
+                <h6>Catégorie : <span class="text-info">{{ products.category }}</span></h6>
+                {# <span class="d-block mb-3">{{ product.priceWt|price }}</span> #}
+                <p>{{ products.description|raw }}</p>
+
+                {# <p>{{ products.price|price }}</p> #}
+                {# <a href="{{ path('app_product_detail', { id : products.id}) }}" class="btn btn-success w-100 mt-3">Ajouter au panier</a> #}
+                <a href="#" class="btn btn-success w-100 mt-3">Ajouter au panier</a>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

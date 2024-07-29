@@ -1,0 +1,104 @@
+{# <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href={{ path('app_home') }}>Au p'tit destock</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href={{ path('app_home') }}>Accueil
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Articles</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">A propos</a>
+        </li>
+
+          {% if app.user %}
+          <li class="nav-item">
+            <a class="nav-link" href={{ path('app_logout') }}>Deconnecter</a>
+          </li>
+  
+          {% else %}
+
+          <li class="nav-item">
+              <a class="nav-link" href={{ path('app_login') }}>Me connecter</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href={{ path('app_register') }}>M'inscrire</a>
+          </li>
+
+          {% endif %}
+
+          {% if app.user %}
+          <li class="nav-item">
+            <a class="nav-link me-3" href="{{ path('app_login') }}"><i class="fa-solid fa-user me-2"></i>{{ app.user.firstname }}</a>
+          </li>
+          {% endif %}
+        
+      </ul>
+
+    </div>
+  </div>
+</nav> #}
+
+
+<header data-bs-theme="dark">
+    <nav class="navbar navbar-expand-md navbar-dark  bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ path('app_home') }}">Au p'tit destock</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">Accueil</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ path('app_product') }}">Nos produits</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ path('app_contact') }}">Contact</a>
+                    </li>
+
+                </ul>
+                <div class="speed-menu">
+
+                    {% if app.user %}
+                      <li class="nav-item nav-link text-light dropdown me-5">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-user me-2"></i> {{ app.user.firstname }}</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="{{ path('app_account') }}">Mon profil</a>
+                          <a class="dropdown-item" href="#">Mon panier</a>
+                          {# <a class="dropdown-item" href="#">ARRIVE BIENTÔT</a> #}
+                          {% if is_granted('ROLE_ADMIN') %}
+                            <a class="dropdown-item" aria-current="page" href="{{ path('admin') }}">Administration</a>
+                          {% endif %}
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
+                        </div>
+                      </li>
+                        {# <a class="nav-link text-light" href="{{ path('app_account') }}"><i class="fa-solid fa-user me-2"></i>{{ app.user.firstname }}</a> #}
+                    {% else %}
+                        <a class="nav-link text-light me-5" href="{{ path('app_login') }}"><i class="fa-solid fa-user me-2"></i>Se connecter</a>
+                    {% endif %}
+
+                    {# <a href="{{ path('app_cart') }}">
+                        <i data-feather="shopping-cart"></i>
+                        <span class="badge text-bg-light">{{ fullCartQuantity }}</span>
+                    </a> #}
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
