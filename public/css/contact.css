@@ -11,14 +11,14 @@ form {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin-top: 15vh;
+    /* justify-content: center; */
+    margin-top: 12vh;
 }
 
 .input {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    /* margin-top: 10px; */
 }
 
 .input label,
@@ -42,11 +42,17 @@ small {
 button {
     margin-top: 10px;
     border-radius: 10px;
-    background-color: #F3969A;
-    border: 0;
+    background-color: #fff;
+    border: 2px solid #F3969A;
     padding: 8px;
-    color: whitesmoke;
+    color: #F3969A;
     font-size: 1.2rem;
+}
+
+button:hover {
+    background-color: #F3969A;
+    color: white;
+    transition: 0.4s;
 }
 
 .error {

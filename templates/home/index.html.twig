@@ -4,4 +4,32 @@
 
 {% block body %}
 
+<section>
+    <div class="image">
+        <img src={{ asset("../images/background.webp") }} alt="">
+    </div>
+</section>
+
+<section>
+    <p class="titre-section">Nos rayons</p>
+
+    <ul class="rayons">
+    {% for category in categorys %}
+        <li>
+            <a href={{ path('app_product_by_slug', { slug: category.slug }) }}>
+                <img src="/uploads/{{ category.images }}" alt={{ category.name }}>
+                <p>{{ category.name }}</p>
+            </a>
+        </li>
+    {% endfor %}
+
+    </ul>
+</section>
+
+<section>
+    {# <p class="titre-section">Qui sommes nous ?</p> #}
+    <img class="banner" src={{ asset('../images/banniere.png') }} alt="">
+</section>
+
+
 {% endblock %}

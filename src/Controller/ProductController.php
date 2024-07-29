@@ -47,4 +47,24 @@ class ProductController extends AbstractController
             'categorys' => $categorys,
         ]);
     }
+
+    #[Route('/rayons/{slug}', name: 'app_rayons_products')]
+    public function listrayons($slug, CategoryRepository $categoryRepository): Response
+    {
+
+        $categorys = $categoryRepository->findAll();
+
+        $products = $categoryRepository->findOneBySlug($slug)->getProducts();
+
+        if (!$products) {
+            return $this->redirectToRoute('app_home');
+        }else if (!$categorys) {
+            return $this->redirectToRoute('app_home');
+        }
+
+        return $this->render('home/index.html.twig', [
+            'products' => $products,
+            'categorys' => $categorys,
+        ]);
+    }
 }

@@ -1,0 +1,51 @@
+body {
+    min-height: 100%;
+}
+
+.image img{
+    width: 100%;
+}
+
+.titre-section {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 2rem;
+}
+
+.rayons {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 3.5rem;
+}
+
+.rayons img {
+    width: 90px;
+}
+
+.rayons a {
+    text-decoration: none;
+}
+
+.rayons p {
+    margin-top: 1.5rem;
+    font-size: 1.2em;
+}
+
+.rayons li a {
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .rayons{
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+}
+
+.banner {
+    margin-top: 3.5rem;
+    height: 40vh;
+    width: 100%;
+}
+

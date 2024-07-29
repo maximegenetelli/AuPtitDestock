@@ -6,6 +6,7 @@ use App\Entity\Category;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -35,6 +36,12 @@ class CategoryCrudController extends AbstractCrudController
                 ->setLabel('Slug')
                 ->setTargetFieldName('name')
                 ->setHelp('URL de votre catégorie générée automatiquement'),
+            ImageField::new('images')
+                ->setLabel('Image')
+                ->setHelp('Image de la catégorie')
+                ->setUploadedFileNamePattern('[year]-[month]-[day]-[contenthash].[extension]')
+                ->setBasePath('/uploads')
+                ->setUploadDir('/public/uploads'),
         ];
     }
 }

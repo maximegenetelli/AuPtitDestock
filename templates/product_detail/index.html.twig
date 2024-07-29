@@ -10,7 +10,7 @@
                 <img src="/uploads/{{ products.illustration }}" class="img-fluid w-100" alt="{{ products.name }}">
             </div>
             <div class="col-md-6">
-                <small><i><a href="{{ path('app_product', { slug : products.category.slug }) }}">{{ products.category.name }} </a>> {{ products.name }}</i></small>
+                <small><i><a href="{{ path('app_product', { slug : products.category.slug }) }}">Produits </a>> {{ products.name }}</i></small>
                 <h1>{{ products.name }}</h1>
                 <h6>Catégorie : <span class="text-info">{{ products.category }}</span></h6>
                 {# <span class="d-block mb-3">{{ product.priceWt|price }}</span> #}
