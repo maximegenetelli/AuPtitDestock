@@ -3,6 +3,8 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
+<link rel="stylesheet" href={{ asset('css/style.css') }}>
+<script src={{ asset('js/home.js') }}></script>
 
 <section>
     <div class="image">
@@ -10,8 +12,19 @@
     </div>
 </section>
 
-<section>
-    <p class="titre-section">Nos rayons</p>
+<section class="conteneur">
+    <h3 class="titre-section">Qui sommes nous ?</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Error non nulla quam labore quis quae eligendi officiis officia doloribus beatae doloremque sunt nobis tempore obcaecati, 
+        harum accusamus modi. Autem possimus, assumenda repellat quisquam sed tempore commodi deleniti temporibus quod 
+        numquam perferendis maiores! Illum nihil, quam distinctio cum iusto facere. Nulla! 
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga, inventore rerum dolores quos illo sed 
+        accusantium veniam aut consequuntur velit? Nobis repellendus ex ipsa? Ea nemo nisi libero labore laborum?
+    </p>
+</section>
+
+<section id="categorie">
+    <h2 class="titre-section">Nos rayons</h2>
 
     <ul class="rayons">
     {% for category in categorys %}
@@ -26,10 +39,16 @@
     </ul>
 </section>
 
-<section>
-    {# <p class="titre-section">Qui sommes nous ?</p> #}
-    <img class="banner" src={{ asset('../images/banniere.png') }} alt="">
-</section>
-
+<div id="newsletter">
+    <h4>Newsletter</h4>
+    <p>Soyez informé(e) de toutes les actualités, bons plans et nouveautés !</p>
+    <form id="formNews" class="d-flex">
+        <input type="text" class="form-control" placeholder="Votre adresse mail" id="inputDefault">
+        <button type="submit" class="btn btn-success d-flex"><i class="fa-solid fa-envelope-open-text me-2 my-auto"></i> S'abonner</button>
+    </form>
+    <form class="container check">
+        <input class="form-check-input" type="checkbox" name="newsok" id="newsok"><label for="newsok">En cochant cette case, vous reconnaissez avoir lu, compris et accepté notre <a class="newsPolitique" href="#">Politique de confidentialité</a></label>
+    </form>
+</div>
 
 {% endblock %}
