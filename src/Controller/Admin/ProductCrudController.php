@@ -54,6 +54,9 @@ class ProductCrudController extends AbstractCrudController
                 ->setBasePath('/uploads')
                 ->setUploadDir('/public/uploads')
                 ->setRequired($required),
+            NumberField::new('quantity')
+                ->setLabel('Quantité')
+                ->setHelp('Quantité en stock du produit'),
             NumberField::new('price')
                 ->setLabel('Prix H.T')
                 ->setHelp('Prix hors taxes de votre produit sans €'),

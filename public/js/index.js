@@ -1,9 +1,12 @@
 // ---------------------------VALIDATION FORMULAIRE--------------------------- //
 const form = document.querySelector('#form');
+// Ecoute si le formulaire est soumit
 form.addEventListener('submit', (e) => {
+    // Aucune action par défault effectué si il y'a un problème
     e.preventDefault();
     const errors = document.querySelectorAll('.error');
 
+    // Boucle qui récupère toutes les erreurs et qui initialise i à 0 et qui ajoute 1 à i si il y'a une erreur, si i = 0 aucun affichage des erreurs sinon il affiche les erreurs du traitement d'en dessous
     for(let i = 0; i < errors.length; i++) {
         errors[i].style.display = 'none';
     }
@@ -11,8 +14,11 @@ form.addEventListener('submit', (e) => {
     // EMAIL
     let emailOk = true;
     const email = document.querySelector('#email').value;
+    // Déclaration d'une règle de validation (REGEX)
     const regexEmail =  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
+    // Condition qui vérifie si ce que l'utilisateur à saisie ne correspond pas à la règle prédéfinie 
+    // Si faux alors affichage d'une erreur sinon tout va bien 
     if (!regexEmail.test(email)) {
         emailOk = false;
         document.querySelector('#emailError').innerText = "L'email saisie est incorrect";

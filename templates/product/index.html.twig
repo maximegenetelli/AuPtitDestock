@@ -24,8 +24,11 @@
                 <div class="card shadow-sm">
                     <img src="/uploads/{{ product.illustration }}" class="img-fluid" alt="{{ product.name }}">
                     <div class="card-body">
-                        <p class="card-text">{{ product.name }}</p>
-                        <small>{{ product.price|price }}</small>
+                        <div class="d-flex justify-content-between">
+                            <p class="card-text text-black fs-5 fw-bold">{{ product.name }}</p>
+                            <p class="text-black">{{ product.price|price }}</p>
+                        </div>
+                        
                         <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                             <a href={{ path('app_product_detail', { slug: product.slug }) }} class="btn btn-outline-info">Voir</a>

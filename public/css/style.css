@@ -1,6 +1,6 @@
 body {
     min-height: 100%;
-    overflow-x: hidden;
+    overflow-x: hidden; /* supprime la scrollbar horizontal */
 }
 
 .image img{
@@ -107,6 +107,7 @@ p {
 
 /* MEDIA QUERIES */
 
+/* si l'utilisateur à un appareil qui fais 768px ou moins */
 @media only screen and (max-width: 768px) {
     .rayons{
         flex-wrap: wrap;
@@ -114,7 +115,8 @@ p {
     }
 }
 
-@media screen and (max-width: 992px) {
+/* si l'utilisateur à un appareil qui fais 992px ou moins */
+@media only screen and (max-width: 992px) {
     #newsletter {
         margin: 0 30px;
         border-radius: 30px;
