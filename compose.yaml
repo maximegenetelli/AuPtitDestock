@@ -1,4 +1,4 @@
-version: '3.1'
+# version: '3.1'
 
 services:
 
@@ -10,8 +10,8 @@ services:
     ports:
       - 3360:3306
     volumes:
-      - stage:/var/lib/mysql
+      - au_ptit_destock:/var/lib/mysql
     container_name: stage
 
 volumes:
-  stage: 
+  au_ptit_destock: 
