@@ -19,7 +19,7 @@ class ProductController extends AbstractController
         $products = $productRepository->findAll();
 
         if (!$products) {
-            return $this->redirectToRoute('app_home');
+            return $this->render('product/no_product.html.twig');
         }
 
         return $this->render('product/index.html.twig', [
@@ -38,7 +38,7 @@ class ProductController extends AbstractController
 
         if (!$products) {
             return $this->redirectToRoute('app_home');
-        }else if (!$categorys) {
+        } else if (!$categorys) {
             return $this->redirectToRoute('app_home');
         }
 
@@ -58,7 +58,7 @@ class ProductController extends AbstractController
 
         if (!$products) {
             return $this->redirectToRoute('app_home');
-        }else if (!$categorys) {
+        } else if (!$categorys) {
             return $this->redirectToRoute('app_home');
         }
 

@@ -61,7 +61,7 @@ h3 {
 
 #newsletter {
     background-color: #f3969a;
-    height: 35vh;
+    /* height: 35vh; */
     margin-top: 50px;
 }
 
@@ -116,11 +116,11 @@ p {
 }
 
 /* si l'utilisateur à un appareil qui fais 992px ou moins */
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1024px) {
     #newsletter {
         margin: 0 30px;
         border-radius: 30px;
-        height: 30vh;
+        height: 35vh;
     }
 
     #newsletter h4 {
@@ -145,4 +145,76 @@ p {
         width: 75%;
         margin: 0 auto;
     }
+}
+
+@media screen and (max-width: 1920px) {
+    #newsletter {
+        height: 25vh;
+    }
+
+    #newsletter h4 {
+        padding-top: 15px;
+    }
+}
+
+.conteneur-newsletter {
+    padding: 10px;
+}
+
+@media screen and (max-width: 1400px) {
+    #newsletter {
+        height: 35vh;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #newsletter {
+        height: 40vh;
+    }
+    
+}
+
+
+.carrousel {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden; /* Cache les images qui débordent */
+}
+
+.carousel img {
+    width: 100%; /* Les images occupent 100% de la largeur du carrousel */
+    display: none; /* Cache toutes les images par défaut */
+    transition: opacity 0.5s ease; /* Transition douce sur l'opacité */
+}
+
+.active {
+    display: block; /* Affiche l'image active */
+    opacity: 1; /* Opacité pleine pour l'image active */
+}
+
+.carrousel-images img {
+    width: 100%;
+    display: none; /* Masque les images par défaut */
+}
+
+.carrousel-images img.active {
+    display: block; /* Affiche l'image active */
+}
+
+.carrousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
 }

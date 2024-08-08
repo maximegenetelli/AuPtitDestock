@@ -18,17 +18,9 @@ class HomeController extends AbstractController
 
         $products = $productRepository->findAll();
 
-        if (!$products) {
-            return $this->redirectToRoute('app_home');
-        }
-
         return $this->render('home/index.html.twig', [
             'products' => $products,
             'categorys' => $categorys,
         ]);
-
-        // return $this->render('home/index.html.twig', [
-        //     'controller_name' => 'HomeController',
-        // ]);
     }
 }

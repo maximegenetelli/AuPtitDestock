@@ -1,85 +1,112 @@
 // ---------------------------VALIDATION FORMULAIRE--------------------------- //
+// Sélectionne le formulaire à partir de son ID 'form' et le stocke dans la constante 'form'
 const form = document.querySelector('#form');
-// Ecoute si le formulaire est soumit
+
+// Écoute l'événement 'submit' sur le formulaire
 form.addEventListener('submit', (e) => {
-    // Aucune action par défault effectué si il y'a un problème
+    // Annule l'action par défaut du formulaire (envoi des données) en cas d'erreur
     e.preventDefault();
+    
+    // Récupère tous les éléments avec la classe 'error' qui seront utilisés pour afficher les messages d'erreur
     const errors = document.querySelectorAll('.error');
 
-    // Boucle qui récupère toutes les erreurs et qui initialise i à 0 et qui ajoute 1 à i si il y'a une erreur, si i = 0 aucun affichage des erreurs sinon il affiche les erreurs du traitement d'en dessous
-    for(let i = 0; i < errors.length; i++) {
-        errors[i].style.display = 'none';
+    // Boucle pour masquer tous les messages d'erreur au début du traitement
+    for (let i = 0; i < errors.length; i++) {
+        errors[i].style.display = 'none'; // Masque chaque message d'erreur
     }
 
-    // EMAIL
-    let emailOk = true;
-    const email = document.querySelector('#email').value;
-    // Déclaration d'une règle de validation (REGEX)
-    const regexEmail =  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
-    // Condition qui vérifie si ce que l'utilisateur à saisie ne correspond pas à la règle prédéfinie 
-    // Si faux alors affichage d'une erreur sinon tout va bien 
-    if (!regexEmail.test(email)) {
-        emailOk = false;
-        document.querySelector('#emailError').innerText = "L'email saisie est incorrect";
-        document.querySelector('#emailError').style.display = 'block';
-    }
-    if (email.length === 0) {
-        emailOk = false;
-        document.querySelector('#emailError').innerText = "Veuillez saisir votre email";
-        document.querySelector('#emailError').style.display = 'block';
-    }
-
-    // PRENOM
-    let firstnameOk = true;
-    const firstname = document.querySelector('#firstname').value;
+    // Validation de l'EMAIL
+    let emailOk = true; // Indicateur de validité de l'email
+    const email = document.querySelector('#email').value; // Récupère la valeur de l'input email
     
+    // Déclaration d'une règle de validation (expression régulière - REGEX) pour l'email
+    const regexEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+    // Vérifie si l'email saisi ne correspond pas à la règle prédéfinie
+    if (!regexEmail.test(email)) {
+        emailOk = false; // Met à jour l'indicateur à false si l'email est invalide
+        // Affiche le message d'erreur associé à l'email
+        document.querySelector('#emailError').innerText = "L'email saisie est incorrect";
+        document.querySelector('#emailError').style.display = 'block'; // Affiche l'erreur
+    }
+    // Vérifie si l'input email est vide
+    if (email.length === 0) {
+        emailOk = false; // Indique que l'email est invalide
+        document.querySelector('#emailError').innerText = "Veuillez saisir votre email";
+        document.querySelector('#emailError').style.display = 'block'; // Affiche l'erreur
+    }
+
+    // Validation du PRENOM
+    let firstnameOk = true; // Indicateur de validité du prénom
+    const firstname = document.querySelector('#firstname').value; // Récupère la valeur de l'input prénom
+    
+    // Vérifie si le prénom est trop court
     if (firstname.length < 4) {
-        firstnameOk = false;
-        document.querySelector('#firstnameError').innerText = "Prénom trop court";
-        document.querySelector('#firstnameError').style.display = 'block';
-    }else if (firstname.length > 20) {
-        firstnameOk = false;
-        document.querySelector('#firstnameError').innerText = "Prénom trop long";
-        document.querySelector('#firstnameError').style.display = 'block';
+        firstnameOk = false; // Indique que le prénom est invalide
+        document.querySelector('#firstnameError').innerText = "Prénom trop court"; // Message d'erreur
+        document.querySelector('#firstnameError').style.display = 'block'; // Affiche l'erreur
+    } 
+    // Vérifie si le prénom est trop long
+    else if (firstname.length > 20) {
+        firstnameOk = false; // Indique que le prénom est invalide
+        document.querySelector('#firstnameError').innerText = "Prénom trop long"; // Message d'erreur
+        document.querySelector('#firstnameError').style.display = 'block'; // Affiche l'erreur
     }
+    // Vérifie si l'input prénom est vide
     if (firstname.length === 0) {
-        firstnameOk = false;
-        document.querySelector('#firstnameError').innerText = "Veuillez saisir votre prénom";
-        document.querySelector('#firstnameError').style.display = 'block';
+        firstnameOk = false; // Indique que le prénom est invalide
+        document.querySelector('#firstnameError').innerText = "Veuillez saisir votre prénom"; // Message d'erreur
+        document.querySelector('#firstnameError').style.display = 'block'; // Affiche l'erreur
     }
 
-    // NOM
-    let lastnameOk = true;
-    const lastname = document.querySelector('#lastname').value;
+    let lastnameOk = true; // Indicateur de validité du nom
+    const lastname = document.querySelector("#lastname").value; // Récupère la valeur de l’input nom
 
+
+    // Vérifie si le nom est trop court
     if (lastname.length < 4) {
-        lastnameOk = false;
-        document.querySelector('#lastnameError').innerText = "Nom trop court";
-        document.querySelector('#lastnameError').style.display = 'block';
-    }else if (lastname.length > 20) {
-        lastnameOk = false;
-        document.querySelector('#lastnameError').innerText = "Nom trop long";
-        document.querySelector('#lastnameError').style.display = 'block';
+    lastnameOk = false; // Met à jour l’indicateur à faux si le nom est invalide
+    // Affiche le message d’erreur associé au nom
+    document.querySelector("#lastnameError").innerText = "Nom trop court";
+    document.querySelector("#lastnameError").style.display = "block"; // Affiche l’erreur
     }
+    // Vérifie si le nom est trop long
+    else if (lastname.length > 20) {
+    lastnameOk = false; // Met à jour l’indicateur à faux si le nom est invalide
+    // Affiche le message d’erreur associé au nom
+    document.querySelector("#lastnameError").innerText = "Nom trop long";
+    document.querySelector("#lastnameError").style.display = "block"; // Affiche l’erreur
+    }
+
+
+    // Vérifie si l’input nom est vide
     if (lastname.length === 0) {
-        lastnameOk = false;
-        document.querySelector('#lastnameError').innerText = "Veuillez saisir votre nom";
-        document.querySelector('#lastnameError').style.display = 'block';
+    lastnameOk = false; // Indique que le nom est invalide
+    // Affiche le message d’erreur associé au nom
+    document.querySelector("#lastnameError").innerText = "Veuillez saisir votre nom";
+    document.querySelector("#lastnameError").style.display = "block"; // Affiche l’erreur
     }
 
-    // MESSAGE
-    let messageOk = true;
-    const message = document.querySelector('#message').value;
 
+    // Validation du MESSAGE
+    let messageOk = true; // Indicateur de validité du message
+    const message = document.querySelector("#message").value; // Récupère la valeur de l’input message
+
+
+    // Vérifie si le message dépasse 255 caractères
     if (message.length > 255) {
-        messageOk = false;
-        document.querySelector('#messageError').innerText = "Votre message doit contenir 255 caractères maximum";
-        document.querySelector('#messageError').style.display = 'block';
+    messageOk = false; // Met à jour l’indicateur à faux si le message est invalide
+    // Affiche le message d’erreur associé au message
+    document.querySelector("#messageError").innerText = "Votre message doit contenir 255 caractères maximum";
+    document.querySelector("#messageError").style.display = "block"; // Affiche l’erreur
     }
+
+
+    // Vérifie si l’input message est vide
     if (message.length === 0) {
-        messageOk = false;
-        document.querySelector('#messageError').innerText = "Veuillez saisir un message";
-        document.querySelector('#messageError').style.display = 'block';
+    messageOk = false; // Indique que le message est invalide
+    // Affiche le message d’erreur associé au message
+    document.querySelector("#messageError").innerText = "Veuillez saisir un message";
+    document.querySelector("#messageError").style.display = "block"; // Affiche l’erreur
     }
-})
+});
