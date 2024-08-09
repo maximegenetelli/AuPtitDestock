@@ -109,4 +109,10 @@ form.addEventListener('submit', (e) => {
     document.querySelector("#messageError").innerText = "Veuillez saisir un message";
     document.querySelector("#messageError").style.display = "block"; // Affiche l’erreur
     }
+
+    if (messageOk === true && lastnameOk === true && firstnameOk === true && emailOk === true) {
+        document.querySelector('#formValid').innerText = "Votre message à bien été envoyé";
+        document.querySelector('#formValid').style.display = "block";
+        document.querySelector('.divValid').style.display = "block";
+    }
 });

@@ -13,12 +13,25 @@ form {
     flex-direction: column;
     /* justify-content: center; */
     margin-top: 12vh;
+    box-shadow: 10px 5px 5px rgb(94, 94, 94);
+}
+
+form input, 
+textarea {
+    outline: none;
+    border-radius: 8px;
+    border: 0;
+    padding: 5px;
+}
+
+form input:focus,
+textarea:focus {
+    border: 1px solid #F3969A;
 }
 
 .input {
     display: flex;
     flex-direction: column;
-    /* margin-top: 10px; */
 }
 
 .input label,
@@ -64,4 +77,29 @@ button:hover {
 
 .obligatory {
     color: crimson;
+}
+
+.valid {
+    display: block;
+    color: #22523F;
+    font-size: 1.1rem;
+    padding: 8px;
+}
+
+.divValid {
+    display: none;
+    background-color: #DDF5EB;
+    border: 1px solid #bbebd8;
+    border-radius: 8px;
+    width: 50%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 500px) {
+    .divValid {
+        width: 75%;
+    }
+    
 }

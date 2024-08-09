@@ -195,6 +195,7 @@ p {
 .carrousel-images img {
     width: 100%;
     display: none; /* Masque les images par défaut */
+    height: 80vh;
 }
 
 .carrousel-images img.active {

@@ -42,10 +42,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $phone = null;
-
-    #[ORM\Column]
-    private bool $isVerified = false;
+    private ?string $phone;
 
     /**
      * @var Collection<int, Address>
@@ -166,18 +163,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPhone(string $phone): static
     {
         $this->phone = $phone;
-
-        return $this;
-    }
-
-    public function isVerified(): bool
-    {
-        return $this->isVerified;
-    }
-
-    public function setVerified(bool $isVerified): static
-    {
-        $this->isVerified = $isVerified;
 
         return $this;
     }
