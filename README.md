@@ -30,7 +30,7 @@ Start the server
 
 ## Support
 
-For support, email maxime@genetelli.fr.
+For support, email maximegenetelli@laposte.net.
 
 ## Authors
 
