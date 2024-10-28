@@ -1,5 +1,5 @@
 body {
-    min-height: 100%;
+    height: 100vh;
     overflow-x: hidden; /* supprime la scrollbar horizontal */
 }
 
@@ -149,7 +149,7 @@ p {
 
 @media screen and (max-width: 1920px) {
     #newsletter {
-        height: 25vh;
+        height: 30vh;
     }
 
     #newsletter h4 {
@@ -196,6 +196,7 @@ p {
     width: 100%;
     display: none; /* Masque les images par défaut */
     height: 80vh;
+    object-fit: cover;
 }
 
 .carrousel-images img.active {
